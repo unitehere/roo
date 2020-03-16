@@ -74,7 +74,11 @@ module Roo
         when :time
           integer_to_timestring(onecell)
         when :link
-          %("#{onecell.url.gsub('"', '""')}")
+          if onecell && onecell.url
+            %("#{onecell.url.gsub('"', '""')}")
+          else
+            onecell.to_s
+          end
         else
           fail "unhandled celltype #{celltype(row, col, sheet)}"
         end || ""
