@@ -18,7 +18,7 @@ Install as a gem
 Or add it to your Gemfile
 
 ```ruby
-gem "roo", "~> 2.7.0"
+gem "roo", "~> 2.8.0"
 ```
 ## Usage
 
@@ -287,9 +287,6 @@ You can run the tests/examples with Rspec like reporters by running
 
 Roo also has a few tests that take a long time (5+ seconds). To run these, use
 `LONG_RUN=true bundle exec rake`
-
-When testing using Ruby 2.0 or 2.1, use this command:
-`BUNDLE_GEMFILE=Gemfile_ruby2 bundle exec rake`
 
 ### Issues
 

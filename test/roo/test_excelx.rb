@@ -3,7 +3,7 @@ require "test_helper"
 class TestRworkbookExcelx < Minitest::Test
   def test_download_uri_with_invalid_host
     assert_raises(RuntimeError) do
-      Roo::Excelx.new("http://example.com/file.xlsx")
+      Roo::Excelx.new("http://examples.com/file.xlsx")
     end
   end
 
@@ -300,6 +300,11 @@ class TestRworkbookExcelx < Minitest::Test
       assert_equal "Google", workbook.cell(1, 1)
       assert_equal "http://www.google.com", workbook.cell(1, 1).href
     end
+  end
+
+  def test_handles_link_without_hyperlink
+    workbook = Roo::Spreadsheet.open(File.join(TESTDIR, "bad_link.xlsx"))
+    assert_equal "Test", workbook.cell(1, 1)
   end
 
   # Excel has two base date formats one from 1900 and the other from 1904.
